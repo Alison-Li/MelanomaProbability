@@ -6,8 +6,9 @@
     <script src="jquery-3.3.1.min.js"></script>
     <style>
         body {background-color: powderblue;}
-        h1 {font-family: helvetica;}
+        h1 {font-family: helvetica; text-shadow: 2px 2px #ffffff}
         p {font-family: helvetica;}
+        li {font-family: helvetica;}
     </style>
 </head>
 
@@ -18,10 +19,18 @@
         <input type="file" onchange="previewFile()"><br>
         <img src="" height="200" alt="">
     </div>
-    <p>Please keep in mind that this website is <b>not</b> a substitute for getting something checked out if you feel uneasy.
-    Checking for abnormalities could save your life. According to research from 2015 by the British Association of Dermatologists, <a href="https://www.medicaldaily.com/skin-cancer-signs-not-clear-three-quarters-people-threatening-healthy-332062">
-    77% of people</a> do not feel confident in their abilities to recognize melanomas of the skin.</p>
-
+    <div class="disclaimer">
+        <p>Please keep in mind that this website is <b>NOT</b> a substitute for getting something checked out if you feel uneasy.
+        Checking for abnormalities could save your life. According to the <i>British Association of Dermatologists</i>, <a href="https://www.medicaldaily.com/skin-cancer-signs-not-clear-three-quarters-people-threatening-healthy-332062">
+        77% of people</a> do not feel confident in their abilities to recognize melanomas of the skin. Be conscious of the <b>ABCDE</b> warning signs of Melanoma:</p>
+        <ul style="list-style-type:disc">
+            <li>A - Asymmetry</li>
+            <li>B - Border</li>
+            <li>C - Colour</li>
+            <li>D - Diameter</li>
+            <li>E - Evolving</li>
+        </ul>
+    </div>
     <script type="text/javascript">
         function makeBlob(dataURL) {
             var BASE64_MARKER = ';base64,';
@@ -81,4 +90,5 @@
         };
     </script>
 </body>
+
 </html>
