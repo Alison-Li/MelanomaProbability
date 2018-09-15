@@ -15,22 +15,49 @@
 <body>
     <h1>Should I get this growth on my skin checked out?</h1>
     <p>Upload a photo of your concerned spot of choice to find out if you should see a doctor or not:</p>
+    
     <div class="accept prediction">
         <input type="file" onchange="previewFile()"><br>
         <img src="" height="200" alt="">
     </div>
+
     <div class="disclaimer">
         <p>Please keep in mind that this website is <b>NOT</b> a substitute for getting something checked out if you feel uneasy.
         Checking for abnormalities could save your life. According to the <i>British Association of Dermatologists</i>, <a href="https://www.medicaldaily.com/skin-cancer-signs-not-clear-three-quarters-people-threatening-healthy-332062">
-        77% of people</a> do not feel confident in their abilities to recognize melanomas of the skin. Be conscious of the <b>ABCDE</b> warning signs of Melanoma:</p>
+        77% of people</a> do not feel confident in their abilities to recognize melanomas of the skin. Be conscious of the <b>ABCDE</b> warning signs of melanoma, especially if you answer "yes" to any of the following:</p>
+        <ul style="list-style-type:none">
+            <li><b>A</b>symmetry — If you drew a line through the middle of the spot, would the two sides match?</li>
+            <li><b>B</b>order — Are the borders of the spot uneven, scalloped, or notched?</li>
+            <li><b>C</b>olour — Does the spot have a variety of colours?</li>
+            <li><b>D</b>iameter — Is the spot larger in diameter?</li>
+            <li><b>E</b>volving — Has the spot evolved or changed in any way over time in shape, colour, or elevation?</li>
+        </ul>
+    
+    <div class="find a dermatologist">
+        <p>Search for a dermatologist:</p>
+        <form method="get" action="http://www.bing.com/search">
+            <div style="border:2px dotted white;padding:4px;width:15em;">
+            <table border="0" align="center" cellpadding="0">
+            <tr><td>
+            <input type="text"   name="q" size="25" style="color:#808080;"
+            maxlength="255" value="Bing"
+            onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
+            <input type="submit" value="Search" />
+            <input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
+            </table>
+            </div>   
+        </form>
+    </div>
+
+    <div class="resources">
+        <p>Read up on melanoma:</p>
         <ul style="list-style-type:disc">
-            <li>A - Asymmetry</li>
-            <li>B - Border</li>
-            <li>C - Colour</li>
-            <li>D - Diameter</li>
-            <li>E - Evolving</li>
+            <li>Skin Cancer Foundation | <a href="https://www.skincancer.org/skin-cancer-information/melanoma/the-stages-of-melanoma/guide-to-staging-melanoma">Guide to Staging — Melanoma</a></li>
+            <li>National Cancer Institute | <a href="https://www.cancer.gov/types/skin/melanoma-photos">What Does Melanoma Look Like?</a></li>
+            <li>Prevent Cancer Foundation | <a href="https://preventcancer.org/programs/save-your-skin/">Save Your Skin</a></li>
         </ul>
     </div>
+
     <script type="text/javascript">
         function makeBlob(dataURL) {
             var BASE64_MARKER = ';base64,';
