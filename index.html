@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Melanoma Project</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h1 style="font-family:helvetica;">Should I get this growth on my skin checked out?</h1>
+    <p style="font-family:helvetica;">Upload a photo of your concerned spot of choice to find out if you should see a doctor or not:</p>
+    <div class="prediction">
+        <input type="file" onchange="previewFile()"><br>
+        <img src="" height="200" alt=" ">
+    </div>
+    <p style="font-family:helvetica;">Please keep in mind that this website is not a substitute for getting something checked out if you feel uneasy.
+    Checking for abnormalities could save your life. According to research from 2015 by the British Association of Dermatologists, <a href="https://www.medicaldaily.com/skin-cancer-signs-not-clear-three-quarters-people-threatening-healthy-332062">
+    77% of people</a> do not feel confident in their abilities to recognize melanomas of the skin.</p>
+
+    <script type="text/javascript">
+       function makeBlob(dataURL) {
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+                return new Blob([raw], { type: contentType });
+            }
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
+
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            return new Blob([uInt8Array], { type: contentType });
+        }
+       
+       function previewFile() {
+            var preview = document.querySelector('img');
+            var file    = document.querySelector('input[type=file]').files[0];
+            var reader  = new FileReader();
+
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+
+                $.ajax({
+                url: "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/35b4b67b-5cf0-42ca-9b98-8210fc8ffe64/image?",
+                beforeSend: function(xhrObj){
+                    // Request headers
+                    xhrObj.setRequestHeader("Prediction-Key","85cb3fab66024f618f4f057523de826a");
+                    xhrObj.setRequestHeader("Content-Type","application/octet-stream");
+                    xhrObj.setRequestHeader("Prediction-key","85cb3fab66024f618f4f057523de826a");
+                },
+                type: "POST",
+                processData: false,
+                // Request body
+                data: makeBlob(reader.result),
+                })
+                .done(function(data) {
+                    alert("Result: " + data.predictions[0].tagName + "\nProbability: " + data.predictions[0].probability);
+                })
+                .fail(function() {
+                    alert("error");
+                });
+
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        };
+    </script>
+
+</body>
+
+</html>
