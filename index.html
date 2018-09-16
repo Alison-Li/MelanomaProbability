@@ -4,11 +4,17 @@
 <head>
     <title>Melanoma Project</title>
     <script src="jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400" rel="stylesheet">
     <style>
-        body {background-color: powderblue;}
-        h1 {font-family: helvetica; text-shadow: 2px 2px #ffffff}
-        p {font-family: helvetica;}
-        li {font-family: helvetica;}
+        body {background-color: powderblue;} 
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400; 
+            text-shadow: 2px 2px #ffffff}
+        p, li {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
     </style>
 </head>
 
@@ -103,7 +109,7 @@
                 data: makeBlob(reader.result),
                 })
                 .done(function(data) {
-                    alert("Result: " + data.predictions[0].tagName + "\nProbability: " + data.predictions[0].probability);
+                    alert("Result: " + data.predictions[0].tagName + "\nProbability of seeing a doctor: " + data.predictions[0].probability);
                 })
                 .fail(function() {
                     alert("error");
