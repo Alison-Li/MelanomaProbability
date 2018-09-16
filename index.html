@@ -29,7 +29,7 @@
 
     <div class="disclaimer">
         <p>Please keep in mind that this website is <b>NOT</b> a substitute for receiving a full skin examination from a dermatologist if you feel uneasy.
-        Checking for abnormalities could save your life. According to the <i>British Association of Dermatologists</i>, <a href="https://www.medicaldaily.com/skin-cancer-signs-not-clear-three-quarters-people-threatening-healthy-332062">
+        Checking for abnormalities could save your life. According to the <i>British Association of Dermatologists</i>, <a href="https://www.medicaldaily.com/skin-cancer-signs-not-clear-three-quarters-people-threatening-healthy-332062" style="color: #f5691e">
         77% of people</a> do not feel confident in their abilities to recognize melanomas of the skin. Be conscious of the <b>ABCDE</b> warning signs of melanoma, especially if you answer "yes" to any of the following:</p>
         <ul style="list-style-type:none">
             <li><b>A</b>symmetry — If you drew a line through the middle of the spot, would the two sides match?</li>
@@ -40,7 +40,7 @@
         </ul>
     
     <div class="find a dermatologist">
-        <p>Search for a dermatologist:</p>
+        <p><b>Search for a dermatologist:</b></p>
         <form method="get" action="http://www.bing.com/search">
             <div style="border:3px dotted white;padding:4px;width:15em;">
             <table border="0" align="center" cellpadding="0">
@@ -56,11 +56,11 @@
     </div>
 
     <div class="resources">
-        <p>Read up on melanoma:</p>
+        <p><b>Read up on melanoma:</b></p>
         <ul style="list-style-type:disc">
-            <li>Skin Cancer Foundation | <a href="https://www.skincancer.org/skin-cancer-information/melanoma/the-stages-of-melanoma/guide-to-staging-melanoma">Guide to Staging — Melanoma</a></li>
-            <li>National Cancer Institute | <a href="https://www.cancer.gov/types/skin/melanoma-photos">What Does Melanoma Look Like?</a></li>
-            <li>Prevent Cancer Foundation | <a href="https://preventcancer.org/programs/save-your-skin/">Save Your Skin</a></li>
+            <li>Skin Cancer Foundation | <a href ="https://www.skincancer.org/skin-cancer-information/melanoma/the-stages-of-melanoma/guide-to-staging-melanoma" style="color: #f5691e">Guide to Staging — Melanoma</a></li>
+            <li>National Cancer Institute | <a href="https://www.cancer.gov/types/skin/melanoma-photos" style="color:#f5691e">What Does Melanoma Look Like?</a></li>
+            <li>Prevent Cancer Foundation | <a href="https://preventcancer.org/programs/save-your-skin/" style="color: #f5691e">Save Your Skin</a></li>
         </ul>
     </div>
 
@@ -109,7 +109,7 @@
                 data: makeBlob(reader.result),
                 })
                 .done(function(data) {
-                    alert("Result: " + data.predictions[0].tagName + "\nProbability of seeing a doctor: " + data.predictions[0].probability);
+                    alert("Result: " + data.predictions[0].tagName + "\nProbability: " + data.predictions[0].probability);
                 })
                 .fail(function() {
                     alert("error");
