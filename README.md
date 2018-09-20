@@ -1,6 +1,6 @@
 # Melanoma Project
 
-Simple project for a web app to predict the probability of whether one should see a doctor to check for a potentially cancerous growth.
+Simple project for a web app to predict the probability of whether one should see a doctor to check for a potentially cancerous growth. Meant as a beginner-friendly project for myself to experiment with HTML, CSS, Javascript, jQuery, Bootstrap, and calling APIs.
 
 ## Built With
 
