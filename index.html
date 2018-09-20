@@ -2,29 +2,42 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Melanoma Project</title>
-    <script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400" rel="stylesheet">
     <style>
         body {
             background-color: powderblue;
         } 
+        header {
+            background:white;
+            padding: 30px 80px;
+        }
+        main {
+            margin: 40px auto 60px auto;
+            padding: 0 80px;
+            max-width: 90rem;
+        }
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 400; 
-            text-shadow: 3px 3px #ffffff;
         }
         p, li {
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
         }
     </style>
+    <script src="jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
-    <h1>Should I get this growth on my skin checked out?</h1>
+    <header>
+        <h1>Should I get this growth on my skin checked out?</h1>
+    </header>
+    <main>
     <p>Upload a photo of your concerned spot of choice to find out if you should see a doctor or not:</p>
-    
+   
     <div class="accept prediction">
         <input type="file" onchange="previewFile()"><br>
         <img src="" height="200" alt="">
@@ -44,14 +57,15 @@
     
     <div class="find a dermatologist">
         <p><b>Search for a dermatologist:</b></p>
-        <form method="get" action="http://www.bing.com/search">
-            <div style="border:3px dotted white;padding:4px;width:15em;">
+        <form method="get" action="http://www.bing.com/search" class="form-inline">
+            <div style="border:3px dotted white;padding:8px; margin-bottom: 15px;">
             <table border="0" align="center" cellpadding="0">
             <tr><td>
             <input type="text"   name="q" size="25" style="color:#808080;"
+            class="form-control"
             maxlength="255" value="Bing"
             onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
-            <input type="submit" value="Search" />
+            <input type="submit" value="Search" class="btn btn-light" />
             <input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
             </table>
             </div>   
@@ -66,6 +80,7 @@
             <li>Prevent Cancer Foundation | <a href="https://preventcancer.org/programs/save-your-skin/" style="color: #f5691e">Save Your Skin</a></li>
         </ul>
     </div>
+</main>
 
     <script type="text/javascript">
         function makeBlob(dataURL) {
@@ -99,8 +114,8 @@
                 preview.src = reader.result;
 
                 $.ajax({
-                url: "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/35b4b67b-5cf0-42ca-9b98-8210fc8ffe64/image?",
-                beforeSend: function(xhrObj){
+                    url: "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/35b4b67b-5cf0-42ca-9b98-8210fc8ffe64/image?",
+                    beforeSend: function(xhrObj){
                     // request headers
                     xhrObj.setRequestHeader("Prediction-Key","85cb3fab66024f618f4f057523de826a");
                     xhrObj.setRequestHeader("Content-Type","application/octet-stream");
@@ -125,6 +140,10 @@
             }
         };
     </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
