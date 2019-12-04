@@ -1,5 +1,8 @@
 language: python
 python: 3.7
-install: skip
+install: 
+  - pip install codecov
 script: 
   - coverage run tests.py
+after_success:
+  - codecov
